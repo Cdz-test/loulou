@@ -1,0 +1,1030 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Louis Scarfone — Développeur Full‑Stack JavaScript & Fondateur de Codyz AI</title>
+<meta name="description" content="Portfolio moderne et animé de Louis Scarfone, développeur full‑stack JavaScript et fondateur de Codyz AI. Projets, compétences, parcours, et plateforme d’IA pour créer des sites web.">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    darkMode: 'class',
+    theme: {
+      extend: {
+        fontFamily: {
+          sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+          display: ['Space Grotesk', 'Inter', 'system-ui', 'sans-serif'],
+        },
+        colors: {
+          brand: {
+            50: '#eef7ff',
+            100: '#d8eeff',
+            200: '#b8e3ff',
+            300: '#8fd5ff',
+            400: '#5bbfff',
+            500: '#2aa7ff',
+            600: '#1a82d6',
+            700: '#1768a8',
+            800: '#145282',
+            900: '#113f63',
+          },
+          candy: {
+            100: '#ffe9f3',
+            200: '#ffd1e8',
+            300: '#ffb3d8',
+            400: '#ff8fc2',
+            500: '#ff6aa9',
+          },
+          mint: {
+            100: '#e6fff7',
+            200: '#ccfeee',
+            300: '#9ff5dc',
+            400: '#6fe9c7',
+            500: '#2ed7a8',
+          }
+        },
+        boxShadow: {
+          glow: '0 0 0 8px rgb(56 189 248 / 0.08), 0 10px 30px rgb(59 130 246 / 0.25)',
+        }
+      }
+    }
+  }
+</script>
+<style>
+  :root {
+    --blur: 26px;
+  }
+  .gradient-title {
+    background: linear-gradient(95deg, #0ea5e9, #22d3ee, #38bdf8, #f472b6, #a78bfa);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    filter: drop-shadow(0 2px 24px rgba(99,102,241,.18));
+    background-size: 200% 200%;
+    animation: gradientShift 8s ease infinite;
+  }
+  .soft-gradient {
+    background-image: linear-gradient(135deg, rgba(56,189,248,.12), rgba(244,114,182,.12)), radial-gradient(1200px 800px at 0% 0%, rgba(125,211,252,.3), rgba(125,211,252,0));
+  }
+  .glass {
+    background: linear-gradient(180deg, rgba(255,255,255,0.66), rgba(255,255,255,0.36));
+    backdrop-filter: saturate(140%) blur(var(--blur));
+    -webkit-backdrop-filter: saturate(140%) blur(var(--blur));
+    border: 1px solid rgba(255,255,255,.6);
+  }
+  .glass-dark {
+    background: linear-gradient(180deg, rgba(2,6,23,0.66), rgba(2,6,23,0.36));
+    backdrop-filter: saturate(140%) blur(var(--blur));
+    border: 1px solid rgba(148,163,184,.15);
+  }
+  .btn {
+    transition: transform .2s ease, box-shadow .2s ease;
+  }
+  .btn:hover { transform: translateY(-1px); }
+  .btn:active { transform: translateY(0); }
+  .reveal { opacity: 0; transform: translateY(18px) scale(.98); transition: opacity .7s ease, transform .7s ease; }
+  .reveal.show { opacity: 1; transform: translateY(0) scale(1); }
+  .tilt { transform-style: preserve-3d; will-change: transform; transition: transform .2s ease; }
+  .sparkle {
+    position: absolute; pointer-events: none; inset: 0; border-radius: inherit; mix-blend-mode: screen;
+    background: radial-gradient(120px 80px at 20% 10%, rgba(125,211,252,.25), rgba(125,211,252,0)),
+                radial-gradient(160px 120px at 80% 30%, rgba(244,114,182,.25), rgba(244,114,182,0)),
+                radial-gradient(220px 140px at 50% 90%, rgba(167,139,250,.25), rgba(167,139,250,0));
+    filter: blur(18px);
+    animation: float 12s ease-in-out infinite alternate;
+  }
+  .blob {
+    position: absolute; filter: blur(28px); opacity: .55; border-radius: 9999px;
+    animation: blobFloat 22s ease-in-out infinite;
+  }
+  .marquee {
+    display: flex; gap: 56px; will-change: transform; animation: marquee 28s linear infinite;
+  }
+  .progressbar {
+    position: fixed; top: 0; left: 0; height: 4px; background: linear-gradient(90deg, #22d3ee, #38bdf8, #f472b6, #a78bfa);
+    background-size: 200% 100%; animation: gradientShift 8s ease infinite; width: 0; z-index: 60;
+  }
+  .ringing { animation: ring 1.1s ease-in-out infinite; }
+  @keyframes gradientShift {
+    0%{background-position:0% 50%} 50%{background-position:100% 50%} 100%{background-position:0% 50%}
+  }
+  @keyframes float { 0%{transform:translateY(-6px)} 100%{transform:translateY(6px)} }
+  @keyframes blobFloat {
+    0%,100%{ transform: translate(0,0) scale(1) }
+    25%{ transform: translate(20px,-30px) scale(1.05) }
+    50%{ transform: translate(-30px,10px) scale(1.03) }
+    75%{ transform: translate(10px,25px) scale(1.07) }
+  }
+  @keyframes marquee { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+  @keyframes ring {
+    0% { transform: rotate(0deg) }
+    5% { transform: rotate(10deg) }
+    10% { transform: rotate(-8deg) }
+    15% { transform: rotate(6deg) }
+    20% { transform: rotate(-4deg) }
+    25% { transform: rotate(2deg) }
+    30%,100% { transform: rotate(0) }
+  }
+  .shadow-soft { box-shadow: 0 20px 60px rgba(2,6,23,.08), 0 6px 20px rgba(2,6,23,.06); }
+  .shadow-soft-dark { box-shadow: 0 20px 60px rgba(0,0,0,.45), 0 6px 20px rgba(0,0,0,.3); }
+  .input { transition: box-shadow .2s ease, transform .1s ease; }
+  .input:focus { box-shadow: 0 0 0 6px rgba(56,189,248,.15); transform: translateY(-1px); }
+  .tooltip::after {
+    content: attr(data-tip);
+    position: absolute; bottom: calc(100% + 8px); left: 50%; transform: translateX(-50%);
+    background: rgba(2,6,23,.95); color: white; padding: 6px 10px; font-size: 12px; border-radius: 8px; opacity: 0; pointer-events: none; transition: opacity .2s;
+    white-space: nowrap;
+  }
+  .tooltip:hover::after { opacity: 1; }
+  .dark .glass { background: linear-gradient(180deg, rgba(2,6,23,0.66), rgba(2,6,23,0.36)); border-color: rgba(148,163,184,.16); }
+</style>
+</head>
+<body class="min-h-screen font-sans antialiased bg-gradient-to-br from-slate-50 via-sky-50 to-pink-50 dark:from-slate-950 dark:via-slate-950 dark:to-indigo-950 text-slate-800 dark:text-slate-100">
+<div id="progress" class="progressbar"></div>
+
+<header class="fixed top-0 left-0 right-0 z-50">
+  <nav id="navbar" class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mt-4 transition-all">
+    <div class="glass dark:glass-dark shadow-soft dark:shadow-soft-dark rounded-2xl px-4 sm:px-6 py-3 flex items-center justify-between">
+      <a href="#" class="flex items-center gap-3">
+        <span class="relative inline-flex items-center justify-center w-11 h-11 rounded-xl bg-gradient-to-br from-sky-300/60 via-candy-300/60 to-mint-300/60 text-slate-900 dark:text-slate-900 font-extrabold">
+          <span class="absolute inset-0 sparkle rounded-xl"></span>
+          <span class="relative">LS</span>
+        </span>
+        <div class="leading-tight">
+          <div class="font-display font-bold text-lg">Louis Scarfone</div>
+          <div class="text-xs text-slate-500 dark:text-slate-400">Full‑Stack JavaScript • Fondateur Codyz AI</div>
+        </div>
+      </a>
+      <div class="hidden md:flex items-center gap-6 text-sm">
+        <a href="#apropos" class="hover:text-brand-600 dark:hover:text-brand-300 transition-colors">À propos</a>
+        <a href="#codyz" class="hover:text-brand-600 dark:hover:text-brand-300 transition-colors">Codyz AI</a>
+        <a href="#skills" class="hover:text-brand-600 dark:hover:text-brand-300 transition-colors">Compétences</a>
+        <a href="#projets" class="hover:text-brand-600 dark:hover:text-brand-300 transition-colors">Projets</a>
+        <a href="#temoignages" class="hover:text-brand-600 dark:hover:text-brand-300 transition-colors">Témoignages</a>
+        <a href="#contact" class="hover:text-brand-600 dark:hover:text-brand-300 transition-colors">Contact</a>
+      </div>
+      <div class="flex items-center gap-3">
+        <button id="themeToggle" class="btn rounded-xl px-3.5 py-2.5 text-sm font-medium bg-white/70 dark:bg-slate-900/60 border border-white/50 dark:border-slate-800 hover:shadow-glow">
+          <i class="fa fa-moon text-slate-700 dark:hidden"></i>
+          <i class="fa fa-sun text-amber-300 hidden dark:inline"></i>
+          <span class="ml-2 hidden sm:inline">Thème</span>
+        </button>
+        <a href="#codyz" class="hidden md:flex btn rounded-xl px-4 py-2.5 text-sm font-semibold text-white bg-gradient-to-r from-sky-500 via-cyan-500 to-fuchsia-500 hover:shadow-glow">
+          <i class="fa fa-wand-magic-sparkles mr-2"></i> Essayer Codyz AI
+        </a>
+        <button id="menuBtn" class="md:hidden btn rounded-xl p-3 bg-white/70 dark:bg-slate-900/60 border border-white/50 dark:border-slate-800"><i class="fa fa-bars"></i></button>
+      </div>
+    </div>
+    <div id="mobileMenu" class="md:hidden hidden mt-3 glass dark:glass-dark rounded-2xl p-4 space-y-2 shadow-soft dark:shadow-soft-dark">
+      <a href="#apropos" class="block px-3 py-2 rounded-lg hover:bg-white/60 dark:hover:bg-white/5">À propos</a>
+      <a href="#codyz" class="block px-3 py-2 rounded-lg hover:bg-white/60 dark:hover:bg-white/5">Codyz AI</a>
+      <a href="#skills" class="block px-3 py-2 rounded-lg hover:bg-white/60 dark:hover:bg-white/5">Compétences</a>
+      <a href="#projets" class="block px-3 py-2 rounded-lg hover:bg-white/60 dark:hover:bg-white/5">Projets</a>
+      <a href="#temoignages" class="block px-3 py-2 rounded-lg hover:bg-white/60 dark:hover:bg-white/5">Témoignages</a>
+      <a href="#contact" class="block px-3 py-2 rounded-lg hover:bg-white/60 dark:hover:bg-white/5">Contact</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <section id="hero" class="relative pt-40 md:pt-48 pb-24 overflow-hidden">
+    <div class="absolute -top-24 -left-16 w-80 h-80 bg-sky-300/30 dark:bg-sky-500/20 blob"></div>
+    <div class="absolute top-16 -right-10 w-96 h-96 bg-fuchsia-300/30 dark:bg-fuchsia-500/20 blob"></div>
+    <div class="absolute bottom-0 -left-10 w-96 h-96 bg-mint-300/30 dark:bg-emerald-500/20 blob"></div>
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start lg:items-center">
+        <div class="reveal order-1 lg:order-1">
+          <div class="inline-flex items-center gap-2 px-3 py-2 rounded-full bg-white/70 dark:bg-slate-900/60 border border-white/50 dark:border-slate-800 text-xs font-medium shadow-soft dark:shadow-soft-dark">
+            <i class="fa fa-bolt text-yellow-400 ringing"></i>
+            <span>Disponible pour mission • 2025</span>
+          </div>
+          <h1 class="mt-5 font-display font-bold text-3xl sm:text-4xl lg:text-5xl xl:text-6xl leading-tight gradient-title">Développeur Full‑Stack JavaScript &amp; Créateur de Codyz AI</h1>
+          <p class="mt-4 text-base sm:text-lg text-slate-600 dark:text-slate-300">Je m'appelle Louis Scarfone, 26 ans. J'aide les marques à concevoir des expériences web élégantes, performantes et propulsées par l'IA. De l'idée au produit, avec une obsession: la qualité.</p>
+          <div class="mt-6 flex flex-wrap gap-3">
+            <span class="px-3.5 py-2 rounded-xl bg-white/70 dark:bg-white/5 border border-white/60 dark:border-white/10 text-sm"><i class="fa-brands fa-js text-yellow-500 mr-2"></i> JavaScript Expert</span>
+            <span class="px-3.5 py-2 rounded-xl bg-white/70 dark:bg-white/5 border border-white/60 dark:border-white/10 text-sm"><i class="fa-brands fa-node-js text-green-600 mr-2"></i> Node, API &amp; Cloud</span>
+            <span class="px-3.5 py-2 rounded-xl bg-white/70 dark:bg-white/5 border border-white/60 dark:border-white/10 text-sm"><i class="fa fa-brain mr-2 text-pink-500"></i> IA appliquée</span>
+          </div>
+          <div class="mt-8 flex flex-col sm:flex-row flex-wrap gap-4">
+            <a href="#codyz" class="btn inline-flex items-center gap-3 rounded-2xl px-5 py-3 text-white bg-gradient-to-r from-sky-500 via-cyan-500 to-fuchsia-500 hover:shadow-glow font-semibold text-center justify-center">
+              <i class="fa fa-magic-wand-sparkles"></i>
+              <span class="text-sm sm:text-base">Construire un site avec Codyz AI</span>
+            </a>
+            <a href="#contact" class="btn inline-flex items-center gap-3 rounded-2xl px-5 py-3 bg-white/70 dark:bg-slate-900/60 border border-white/60 dark:border-slate-800 hover:shadow-soft dark:hover:shadow-soft-dark text-center justify-center">
+              <i class="fa fa-envelope-open-text"></i>
+              <span class="text-sm sm:text-base">Me contacter</span>
+            </a>
+            <a href="https://placehold.co/1x1?text=CV" class="btn inline-flex items-center gap-2 text-slate-600 dark:text-slate-200 underline decoration-sky-400/60 underline-offset-4 text-center justify-center">
+              <i class="fa fa-file-arrow-down"></i> Télécharger le CV
+            </a>
+          </div>
+          <div class="mt-10 grid grid-cols-3 gap-3 sm:gap-4 max-w-full sm:max-w-lg">
+            <div class="p-3 sm:p-4 rounded-2xl glass dark:glass-dark text-center">
+              <div class="text-xl sm:text-2xl font-bold">120+</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400">Interfaces livrées</div>
+            </div>
+            <div class="p-3 sm:p-4 rounded-2xl glass dark:glass-dark text-center">
+              <div class="text-xl sm:text-2xl font-bold">30+</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400">Produits propulsés par l'IA</div>
+            </div>
+            <div class="p-3 sm:p-4 rounded-2xl glass dark:glass-dark text-center">
+              <div class="text-xl sm:text-2xl font-bold">8</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400">Années d'apprentissage</div>
+            </div>
+          </div>
+        </div>
+        <div class="relative reveal order-2 lg:order-2 w-full">
+          <div class="absolute -top-8 -right-8 w-40 h-40 rounded-full bg-gradient-to-tr from-sky-300/50 to-fuchsia-300/50 blur-2xl"></div>
+          <div class="relative rounded-3xl overflow-hidden glass dark:glass-dark shadow-soft dark:shadow-soft-dark tilt w-full max-w-full" id="codeCard">
+            <div class="absolute inset-0 pointer-events-none sparkle"></div>
+            <div class="flex items-center justify-between px-3 sm:px-5 py-3 bg-white/60 dark:bg-white/5 border-b border-white/50 dark:border-white/10">
+              <div class="flex items-center gap-1 text-slate-500 text-xs">
+                <span class="w-3 h-3 rounded-full bg-red-400"></span>
+                <span class="w-3 h-3 rounded-full bg-yellow-400"></span>
+                <span class="w-3 h-3 rounded-full bg-green-400"></span>
+              </div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 hidden sm:block">app/routes/codyz.ts</div>
+              <i class="fa fa-ellipsis text-slate-400"></i>
+            </div>
+            <pre class="m-0 p-3 sm:p-6 overflow-x-auto text-xs sm:text-sm leading-relaxed bg-gradient-to-br from-white/70 to-white/30 dark:from-slate-900/50 dark:to-slate-900/30 max-w-full"><code class="font-mono text-slate-800 dark:text-slate-100 whitespace-pre-wrap break-words">
+<span class="text-sky-600">import</span> { <span class="text-emerald-500">build</span> } from <span class="text-pink-500">'@codyz/ai'</span>
+
+<span class="text-slate-500">// Décrivez votre idée, Codyz construit, déploie et optimise</span>
+<span class="text-sky-600">const</span> projet = <span class="text-pink-500">'Un portfolio pastel, moderne &amp; animé'</span>
+
+<span class="text-sky-600">const</span> site = <span class="text-emerald-500">await</span> build({
+  stack: [<span class="text-pink-500">'Next.js'</span>, <span class="text-pink-500">'Tailwind'</span>, <span class="text-pink-500">'Supabase'</span>],
+  seo: { title: <span class="text-pink-500">'Louis Scarfone'</span>, locale: <span class="text-pink-500">'fr-FR'</span> },
+  animations: <span class="text-emerald-500">true</span>,
+})
+
+<span class="text-emerald-500">console</span>.log(<span class="text-pink-500">'🚀 Déployé avec Codyz AI'</span>, site.url)
+</code></pre>
+          </div>
+          <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4 w-full">
+            <div class="p-4 sm:p-5 rounded-2xl bg-white/70 dark:bg-white/5 border border-white/60 dark:border-white/10">
+              <div class="flex items-center gap-3">
+                <span class="w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-300/60 to-sky-300/60 flex items-center justify-center text-emerald-900"><i class="fa fa-rocket"></i></span>
+                <div>
+                  <div class="text-sm font-semibold">Déploiement 1‑clic</div>
+                  <div class="text-xs text-slate-500">CI/CD, domaines &amp; CDN</div>
+                </div>
+              </div>
+            </div>
+            <div class="p-4 sm:p-5 rounded-2xl bg-white/70 dark:bg-white/5 border border-white/60 dark:border-white/10">
+              <div class="flex items-center gap-3">
+                <span class="w-10 h-10 rounded-xl bg-gradient-to-tr from-fuchsia-300/60 to-violet-300/60 flex items-center justify-center text-fuchsia-900"><i class="fa fa-sparkles"></i></span>
+                <div>
+                  <div class="text-sm font-semibold">UI pastel &amp; animée</div>
+                  <div class="text-xs text-slate-500">Guides de styles raffinés</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="absolute -bottom-6 -left-6 w-44 h-44 bg-gradient-to-br from-mint-300/60 to-candy-300/60 rounded-full blur-2xl"></div>
+        </div>
+      </div>
+      <div class="mt-16 overflow-hidden">
+        <div class="marquee">
+          <div class="flex items-center gap-14 text-slate-500/70 text-2xl">
+            <i class="fa-brands fa-js"></i><i class="fa-brands fa-node-js"></i><i class="fa-brands fa-react"></i><i class="fa-brands fa-vuejs"></i><i class="fa-brands fa-git-alt"></i><i class="fa-brands fa-aws"></i><i class="fa-brands fa-docker"></i><i class="fa-brands fa-figma"></i><i class="fa-brands fa-chrome"></i><i class="fa-brands fa-github"></i>
+          </div>
+          <div class="flex items-center gap-14 text-slate-500/70 text-2xl ml-14">
+            <i class="fa-brands fa-js"></i><i class="fa-brands fa-node-js"></i><i class="fa-brands fa-react"></i><i class="fa-brands fa-vuejs"></i><i class="fa-brands fa-git-alt"></i><i class="fa-brands fa-aws"></i><i class="fa-brands fa-docker"></i><i class="fa-brands fa-figma"></i><i class="fa-brands fa-chrome"></i><i class="fa-brands fa-github"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="apropos" class="relative py-20 soft-gradient">
+    <div class="absolute inset-0 pointer-events-none opacity-50"></div>
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div class="relative reveal">
+          <div class="absolute -top-6 -left-6 w-36 h-36 bg-gradient-to-tr from-sky-200 to-fuchsia-200 rounded-full blur-2xl"></div>
+          <img src="https://placehold.co/760x600" alt="Portrait de Louis Scarfone" class="relative w-full h-auto rounded-3xl object-cover shadow-soft dark:shadow-soft-dark border border-white/60 dark:border-white/10">
+          <div class="absolute -bottom-5 -right-5 px-5 py-4 rounded-2xl bg-white/80 dark:bg-white/5 border border-white/60 dark:border-white/10 shadow-soft dark:shadow-soft-dark">
+            <div class="text-sm font-semibold"><i class="fa fa-medal text-amber-400 mr-2"></i> Prix Talent Web 2024</div>
+            <div class="text-xs text-slate-500">Innovation &amp; Expérience Utilisateur</div>
+          </div>
+        </div>
+        <div class="reveal">
+          <h2 class="font-display font-bold text-3xl md:text-4xl gradient-title">Qui suis‑je ?</h2>
+          <p class="mt-4 text-slate-600 dark:text-slate-300">Après un Bac S, une Licence d’Histoire puis un Master en archéométrie (sciences et laboratoire), j’ai effectué un virage ambitieux vers l’intelligence artificielle et le développement web. Cette diversité nourrit ma manière d’aborder les produits: rigueur scientifique, sens du récit et amour du beau.</p>
+          <div class="mt-6 grid sm:grid-cols-2 gap-4">
+            <div class="p-5 rounded-2xl bg-white/70 dark:bg-white/5 border border-white/60 dark:border-white/10">
+              <div class="font-semibold"><i class="fa fa-compass text-sky-500 mr-2"></i> Vision produit</div>
+              <div class="text-sm text-slate-600 dark:text-slate-300">Des interfaces utiles, désirables et durables.</div>
+            </div>
+            <div class="p-5 rounded-2xl bg-white/70 dark:bg-white/5 border border-white/60 dark:border-white/10">
+              <div class="font-semibold"><i class="fa fa-gauge-high text-emerald-500 mr-2"></i> Performance</div>
+              <div class="text-sm text-slate-600 dark:text-slate-300">Temps de chargement ultra‑rapides, SEO solide.</div>
+            </div>
+            <div class="p-5 rounded-2xl bg-white/70 dark:bg-white/5 border border-white/60 dark:border-white/10">
+              <div class="font-semibold"><i class="fa fa-shield-halved text-indigo-500 mr-2"></i> Qualité</div>
+              <div class="text-sm text-slate-600 dark:text-slate-300">Tests, CI/CD, documentation claire.</div>
+            </div>
+            <div class="p-5 rounded-2xl bg-white/70 dark:bg-white/5 border border-white/60 dark:border-white/10">
+              <div class="font-semibold"><i class="fa fa-wand-magic-sparkles text-pink-500 mr-2"></i> Créativité</div>
+              <div class="text-sm text-slate-600 dark:text-slate-300">Esthétique pastel &amp; micro‑interactions élégantes.</div>
+            </div>
+          </div>
+          <div class="mt-8">
+            <div class="flex items-center gap-3 text-sm text-slate-600 dark:text-slate-300"><i class="fa fa-location-dot text-rose-400"></i> Basé en France • Ouvert à l’international</div>
+            <div class="mt-3 flex items-center gap-3 text-sm text-slate-600 dark:text-slate-300"><i class="fa fa-earth-europe text-emerald-400"></i> Français, Anglais</div>
+          </div>
+          <div class="mt-8 flex gap-3">
+            <a href="#contact" class="btn rounded-xl px-4 py-2.5 bg-sky-500/90 text-white hover:shadow-glow"><i class="fa fa-calendar-check mr-2"></i> Réserver un créneau</a>
+            <a href="https://github.com" target="_blank" class="btn rounded-xl px-4 py-2.5 bg-white/70 dark:bg-white/5 border border-white/60 dark:border-white/10">
+              <i class="fa-brands fa-github mr-2"></i> GitHub
+            </a>
+            <a href="https://www.linkedin.com" target="_blank" class="btn rounded-xl px-4 py-2.5 bg-white/70 dark:bg-white/5 border border-white/60 dark:border-white/10">
+              <i class="fa-brands fa-linkedin mr-2 text-sky-600"></i> LinkedIn
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="mt-14 grid md:grid-cols-4 gap-4">
+        <div class="p-5 rounded-2xl bg-white/70 dark:bg-white/5 border border-white/60 dark:border-white/10 text-center">
+          <div class="text-3xl font-extrabold" data-counter="7400">0</div>
+          <div class="text-xs text-slate-500">Commits &amp; itérations</div>
+        </div>
+        <div class="p-5 rounded-2xl bg-white/70 dark:bg-white/5 border border-white/60 dark:border-white/10 text-center">
+          <div class="text-3xl font-extrabold" data-counter="98">0</div>
+          <div class="text-xs text-slate-500">Score Lighthouse moyen</div>
+        </div>
+        <div class="p-5 rounded-2xl bg-white/70 dark:bg-white/5 border border-white/60 dark:border-white/10 text-center">
+          <div class="text-3xl font-extrabold" data-counter="24">0</div>
+          <div class="text-xs text-slate-500">Clients accompagnés</div>
+        </div>
+        <div class="p-5 rounded-2xl bg-white/70 dark:bg-white/5 border border-white/60 dark:border-white/10 text-center">
+          <div class="text-3xl font-extrabold" data-counter="100">0</div>
+          <div class="text-xs text-slate-500">% satisfaction</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="codyz" class="relative py-24 bg-gradient-to-br from-sky-50 via-mint-100 to-candy-100 dark:from-slate-950 dark:via-indigo-950 dark:to-fuchsia-950">
+    <div class="absolute inset-0 pointer-events-none opacity-40" style="background-image: radial-gradient(500px 200px at 10% 20%, rgba(56,189,248,.25), rgba(0,0,0,0)), radial-gradient(600px 240px at 90% 20%, rgba(244,114,182,.25), rgba(0,0,0,0));"></div>
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="reveal text-center max-w-3xl mx-auto">
+        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/70 dark:bg-white/5 border border-white/60 dark:border-white/10 text-xs font-semibold uppercase tracking-wider">
+          <i class="fa fa-wand-sparkles text-fuchsia-400"></i> Codyz AI
+        </div>
+        <h2 class="mt-4 font-display font-bold text-3xl md:text-5xl gradient-title">Créez un site complet en quelques clics</h2>
+        <p class="mt-3 text-slate-600 dark:text-slate-300">Décrivez votre idée en langage naturel. Codyz AI génère une architecture moderne, un design pastel élégant, des animations et un déploiement prêt en production.</p>
+      </div>
+      <div class="mt-12 grid lg:grid-cols-2 gap-10 items-center">
+        <div class="reveal">
+          <div class="rounded-3xl overflow-hidden glass dark:glass-dark shadow-soft dark:shadow-soft-dark">
+            <div class="px-6 py-4 border-b border-white/60 dark:border-white/10 bg-white/60 dark:bg-white/5 flex items-center justify-between">
+              <div class="text-sm font-semibold">Démo</div>
+              <div class="text-xs text-slate-500">Générateur d’interface</div>
+            </div>
+            <div class="p-6 space-y-4">
+              <label class="text-sm font-medium">Décrivez votre site</label>
+              <div class="flex gap-3">
+                <input id="prompt" type="text" class="input w-full px-4 py-3 rounded-xl bg-white dark:bg-slate-900 border border-white/60 dark:border-white/10" placeholder="Un e‑commerce minimaliste de cosmétiques bio, pastel, doux...">
+                <button id="generateBtn" class="btn px-4 py-3 rounded-xl bg-gradient-to-r from-emerald-400 to-sky-400 text-white font-semibold"><i class="fa fa-magic-sparkles mr-2"></i> Générer</button>
+              </div>
+              <div class="rounded-2xl border border-white/60 dark:border-white/10 overflow-hidden">
+                <div class="px-4 py-2 text-xs text-slate-500 border-b border-white/60 dark:border-white/10 bg-white/60 dark:bg-white/5">Aperçu visuel</div>
+                <div id="preview" class="p-6 grid sm:grid-cols-2 gap-4 bg-white/50 dark:bg-slate-900/30">
+                  <div class="p-4 rounded-xl bg-gradient-to-br from-white to-sky-50 dark:from-slate-900 dark:to-slate-900/60">
+                    <div class="h-3 w-24 rounded bg-slate-200 dark:bg-slate-700"></div>
+                    <div class="mt-3 h-6 w-44 rounded bg-slate-200 dark:bg-slate-700"></div>
+                    <div class="mt-3 h-32 rounded-xl bg-gradient-to-br from-sky-200/60 to-fuchsia-200/60"></div>
+                  </div>
+                  <div class="p-4 rounded-xl bg-gradient-to-br from-white to-pink-50 dark:from-slate-900 dark:to-slate-900/60">
+                    <div class="h-3 w-28 rounded bg-slate-200 dark:bg-slate-700"></div>
+                    <div class="mt-3 h-6 w-36 rounded bg-slate-200 dark:bg-slate-700"></div>
+                    <div class="mt-3 h-32 rounded-xl bg-gradient-to-br from-mint-200/60 to-violet-200/60"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="flex flex-wrap gap-2">
+                <span class="px-3 py-1.5 rounded-full bg-white/70 dark:bg-white/5 border border-white/60 dark:border-white/10 text-xs"><i class="fa fa-layer-group text-sky-500 mr-2"></i>Next.js, Vite</span>
+                <span class="px-3 py-1.5 rounded-full bg-white/70 dark:bg-white/5 border border-white/60 dark:border-white/10 text-xs"><i class="fa fa-wand-magic-sparkles text-fuchsia-500 mr-2"></i>Animations</span>
+                <span class="px-3 py-1.5 rounded-full bg-white/70 dark:bg-white/5 border border-white/60 dark:border-white/10 text-xs"><i class="fa fa-cloud-arrow-up text-emerald-500 mr-2"></i>Déploiement</span>
+                <span class="px-3 py-1.5 rounded-full bg-white/70 dark:bg-white/5 border border-white/60 dark:border-white/10 text-xs"><i class="fa fa-shield text-indigo-500 mr-2"></i>Audit qualité</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="reveal">
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div class="p-6 rounded-2xl bg-white/70 dark:bg-white/5 border border-white/60 dark:border-white/10">
+              <div class="w-11 h-11 rounded-xl bg-gradient-to-tr from-sky-300/60 to-cyan-300/60 flex items-center justify-center text-sky-900 mb-3"><i class="fa fa-palette"></i></div>
+              <div class="font-semibold">Design pastel</div>
+              <p class="text-sm text-slate-600 dark:text-slate-300 mt-1">Typographies élégantes, couleurs douces et interface respirante.</p>
+            </div>
+            <div class="p-6 rounded-2xl bg-white/70 dark:bg-white/5 border border-white/60 dark:border-white/10">
+              <div class="w-11 h-11 rounded-xl bg-gradient-to-tr from-fuchsia-300/60 to-violet-300/60 flex items-center justify-center text-fuchsia-900 mb-3"><i class="fa fa-sparkles"></i></div>
+              <div class="font-semibold">Interactions fines</div>
+              <p class="text-sm text-slate-600 dark:text-slate-300 mt-1">Micro‑interactions, parallaxe et transitions fluides.</p>
+            </div>
+            <div class="p-6 rounded-2xl bg-white/70 dark:bg-white/5 border border-white/60 dark:border-white/10">
+              <div class="w-11 h-11 rounded-xl bg-gradient-to-tr from-emerald-300/60 to-mint-300/60 flex items-center justify-center text-emerald-900 mb-3"><i class="fa fa-microchip"></i></div>
+              <div class="font-semibold">IA pragmatique</div>
+              <p class="text-sm text-slate-600 dark:text-slate-300 mt-1">Génération de code, optimisation SEO et accessibilité.</p>
+            </div>
+            <div class="p-6 rounded-2xl bg-white/70 dark:bg-white/5 border border-white/60 dark:border-white/10">
+              <div class="w-11 h-11 rounded-xl bg-gradient-to-tr from-indigo-300/60 to-sky-300/60 flex items-center justify-center text-indigo-900 mb-3"><i class="fa fa-cloud"></i></div>
+              <div class="font-semibold">Cloud prêt</div>
+              <p class="text-sm text-slate-600 dark:text-slate-300 mt-1">Infra scalable, CDN mondial et monitoring intégré.</p>
+            </div>
+          </div>
+          <div class="mt-6 flex flex-wrap gap-3">
+            <a href="#contact" class="btn px-5 py-3 rounded-xl bg-slate-900 text-white dark:bg-white dark:text-slate-900 font-semibold"><i class="fa fa-handshake mr-2"></i> Devenir partenaire</a>
+            <a href="#" class="btn px-5 py-3 rounded-xl bg-white/70 dark:bg-white/5 border border-white/60 dark:border-white/10"><i class="fa fa-circle-play mr-2 text-sky-500"></i> Voir une démo</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills" class="relative py-24">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="reveal text-center">
+        <h2 class="font-display font-bold text-3xl md:text-4xl gradient-title">Compétences &amp; Stack</h2>
+        <p class="mt-2 text-slate-600 dark:text-slate-300">Du front au back, en passant par l’IA, je construis des produits cohérents et performants.</p>
+      </div>
+      <div class="mt-10 grid lg:grid-cols-3 gap-6">
+        <div class="p-6 rounded-2xl glass dark:glass-dark shadow-soft dark:shadow-soft-dark reveal">
+          <div class="flex items-center justify-between">
+            <div class="font-semibold"><i class="fa-brands fa-react text-sky-500 mr-2"></i> Front‑end</div>
+            <span class="text-xs px-2 py-1 rounded bg-sky-100 dark:bg-sky-500/20 text-sky-700 dark:text-sky-200">Expert</span>
+          </div>
+          <ul class="mt-4 space-y-3 text-sm">
+            <li class="flex items-center justify-between">
+              <span>React / Next.js</span>
+              <span class="w-1/2 h-2 bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden"><span class="block h-full bg-gradient-to-r from-sky-400 to-fuchsia-400" style="width: 95%"></span></span>
+            </li>
+            <li class="flex items-center justify-between">
+              <span>Tailwind CSS</span>
+              <span class="w-1/2 h-2 bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden"><span class="block h-full bg-gradient-to-r from-cyan-400 to-emerald-400" style="width: 96%"></span></span>
+            </li>
+            <li class="flex items-center justify-between">
+              <span>Accessibilité (a11y)</span>
+              <span class="w-1/2 h-2 bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden"><span class="block h-full bg-gradient-to-r from-violet-400 to-pink-400" style="width: 88%"></span></span>
+            </li>
+          </ul>
+          <div class="mt-4 flex flex-wrap gap-2 text-xs">
+            <span class="px-2.5 py-1 rounded-full bg-white/70 dark:bg-white/5 border border-white/60 dark:border-white/10">Animations</span>
+            <span class="px-2.5 py-1 rounded-full bg-white/70 dark:bg-white/5 border border-white/60 dark:border-white/10">RWD</span>
+            <span class="px-2.5 py-1 rounded-full bg-white/70 dark:bg-white/5 border border-white/60 dark:border-white/10">Design System</span>
+          </div>
+        </div>
+        <div class="p-6 rounded-2xl glass dark:glass-dark shadow-soft dark:shadow-soft-dark reveal">
+          <div class="flex items-center justify-between">
+            <div class="font-semibold"><i class="fa-brands fa-node-js text-green-600 mr-2"></i> Back‑end</div>
+            <span class="text-xs px-2 py-1 rounded bg-emerald-100 dark:bg-emerald-500/20 text-emerald-700 dark:text-emerald-200">Avancé</span>
+          </div>
+          <ul class="mt-4 space-y-3 text-sm">
+            <li class="flex items-center justify-between">
+              <span>Node.js, Express, Nest</span>
+              <span class="w-1/2 h-2 bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden"><span class="block h-full bg-gradient-to-r from-emerald-400 to-sky-400" style="width: 90%"></span></span>
+            </li>
+            <li class="flex items-center justify-between">
+              <span>PostgreSQL, Prisma</span>
+              <span class="w-1/2 h-2 bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden"><span class="block h-full bg-gradient-to-r from-indigo-400 to-cyan-400" style="width: 88%"></span></span>
+            </li>
+            <li class="flex items-center justify-between">
+              <span>Auth &amp; Sécurité</span>
+              <span class="w-1/2 h-2 bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden"><span class="block h-full bg-gradient-to-r from-rose-400 to-fuchsia-400" style="width: 86%"></span></span>
+            </li>
+          </ul>
+          <div class="mt-4 flex flex-wrap gap-2 text-xs">
+            <span class="px-2.5 py-1 rounded-full bg-white/70 dark:bg-white/5 border border-white/60 dark:border-white/10">API REST</span>
+            <span class="px-2.5 py-1 rounded-full bg-white/70 dark:bg-white/5 border border-white/60 dark:border-white/10">GraphQL</span>
+            <span class="px-2.5 py-1 rounded-full bg-white/70 dark:bg-white/5 border border-white/60 dark:border-white/10">Redis</span>
+          </div>
+        </div>
+        <div class="p-6 rounded-2xl glass dark:glass-dark shadow-soft dark:shadow-soft-dark reveal">
+          <div class="flex items-center justify-between">
+            <div class="font-semibold"><i class="fa fa-brain text-pink-500 mr-2"></i> IA &amp; DevOps</div>
+            <span class="text-xs px-2 py-1 rounded bg-pink-100 dark:bg-pink-500/20 text-pink-700 dark:text-pink-200">Avancé</span>
+          </div>
+          <ul class="mt-4 space-y-3 text-sm">
+            <li class="flex items-center justify-between">
+              <span>LLMs, RAG, prompts</span>
+              <span class="w-1/2 h-2 bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden"><span class="block h-full bg-gradient-to-r from-pink-400 to-violet-400" style="width: 90%"></span></span>
+            </li>
+            <li class="flex items-center justify-between">
+              <span>CI/CD, Docker, AWS</span>
+              <span class="w-1/2 h-2 bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden"><span class="block h-full bg-gradient-to-r from-amber-400 to-emerald-400" style="width: 85%"></span></span>
+            </li>
+            <li class="flex items-center justify-between">
+              <span>Monitoring &amp; DX</span>
+              <span class="w-1/2 h-2 bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden"><span class="block h-full bg-gradient-to-r from-cyan-400 to-indigo-400" style="width: 84%"></span></span>
+            </li>
+          </ul>
+          <div class="mt-4 flex flex-wrap gap-2 text-xs">
+            <span class="px-2.5 py-1 rounded-full bg-white/70 dark:bg-white/5 border border-white/60 dark:border-white/10">OpenAI</span>
+            <span class="px-2.5 py-1 rounded-full bg-white/70 dark:bg-white/5 border border-white/60 dark:border-white/10">Supabase</span>
+            <span class="px-2.5 py-1 rounded-full bg-white/70 dark:bg-white/5 border border-white/60 dark:border-white/10">Sentry</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projets" class="relative py-24">
+    <div class="absolute inset-0 -z-10 opacity-40" style="background-image: radial-gradient(800px 200px at 50% 0%, rgba(125,211,252,.25), rgba(0,0,0,0));"></div>
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="reveal flex items-end justify-between flex-wrap gap-6">
+        <div>
+          <h2 class="font-display font-bold text-3xl md:text-4xl gradient-title">Projets sélectionnés</h2>
+          <p class="mt-2 text-slate-600 dark:text-slate-300">Une sélection d’expériences pertinentes, orientées produit et performance.</p>
+        </div>
+        <a href="#" class="btn px-4 py-2.5 rounded-xl bg-white/70 dark:bg-white/5 border border-white/60 dark:border-white/10"><i class="fa fa-grid-2 mr-2"></i> Tous les projets</a>
+      </div>
+      <div class="mt-10 grid lg:grid-cols-3 gap-6">
+        <article class="group rounded-3xl overflow-hidden glass dark:glass-dark shadow-soft dark:shadow-soft-dark reveal tilt">
+          <div class="relative">
+            <img src="https://placehold.co/900x600" alt="Aperçu projet Codyz AI" class="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-[1.03]">
+            <div class="absolute top-4 left-4 px-3 py-1.5 rounded-full bg-white/80 dark:bg-white/10 border border-white/60 dark:border-white/10 text-xs"><i class="fa fa-wand-sparkles mr-1 text-fuchsia-500"></i> IA</div>
+          </div>
+          <div class="p-6">
+            <h3 class="font-semibold text-lg">Codyz AI — Générateur de sites</h3>
+            <p class="text-sm text-slate-600 dark:text-slate-300 mt-1">De l’idée au déploiement, Codyz automatise l’architecture, le design et les animations.</p>
+            <div class="mt-3 flex flex-wrap gap-2 text-xs">
+              <span class="px-2.5 py-1 rounded-full bg-sky-100 dark:bg-sky-500/20 text-sky-700 dark:text-sky-200">Next.js</span>
+              <span class="px-2.5 py-1 rounded-full bg-emerald-100 dark:bg-emerald-500/20 text-emerald-700 dark:text-emerald-200">OpenAI</span>
+              <span class="px-2.5 py-1 rounded-full bg-pink-100 dark:bg-pink-500/20 text-pink-700 dark:text-pink-200">Tailwind</span>
+            </div>
+            <div class="mt-5 flex gap-3">
+              <a href="#" class="btn px-4 py-2 rounded-xl bg-slate-900 text-white dark:bg-white dark:text-slate-900 text-sm"><i class="fa fa-up-right-from-square mr-2"></i> Visiter</a>
+              <a href="#" class="btn px-4 py-2 rounded-xl bg-white/70 dark:bg-white/5 border border-white/60 dark:border-white/10 text-sm"><i class="fa-brands fa-github mr-2"></i> Code</a>
+            </div>
+          </div>
+        </article>
+        <article class="group rounded-3xl overflow-hidden glass dark:glass-dark shadow-soft dark:shadow-soft-dark reveal tilt">
+          <div class="relative">
+            <img src="https://placehold.co/900x600" alt="Aperçu projet Plateforme Éducation" class="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-[1.03]">
+            <div class="absolute top-4 left-4 px-3 py-1.5 rounded-full bg-white/80 dark:bg-white/10 border border-white/60 dark:border-white/10 text-xs"><i class="fa fa-graduation-cap mr-1 text-indigo-500"></i> Éducation</div>
+          </div>
+          <div class="p-6">
+            <h3 class="font-semibold text-lg">Campus+ — Plateforme d’apprentissage</h3>
+            <p class="text-sm text-slate-600 dark:text-slate-300 mt-1">Cours interactifs, quizz, gamification et analytics avancés.</p>
+            <div class="mt-3 flex flex-wrap gap-2 text-xs">
+              <span class="px-2.5 py-1 rounded-full bg-violet-100 dark:bg-violet-500/20 text-violet-700 dark:text-violet-200">React</span>
+              <span class="px-2.5 py-1 rounded-full bg-emerald-100 dark:bg-emerald-500/20 text-emerald-700 dark:text-emerald-200">Node</span>
+              <span class="px-2.5 py-1 rounded-full bg-amber-100 dark:bg-amber-500/20 text-amber-700 dark:text-amber-200">Postgres</span>
+            </div>
+            <div class="mt-5 flex gap-3">
+              <a href="#" class="btn px-4 py-2 rounded-xl bg-slate-900 text-white dark:bg-white dark:text-slate-900 text-sm"><i class="fa fa-up-right-from-square mr-2"></i> Visiter</a>
+              <a href="#" class="btn px-4 py-2 rounded-xl bg-white/70 dark:bg-white/5 border border-white/60 dark:border-white/10 text-sm"><i class="fa-brands fa-github mr-2"></i> Code</a>
+            </div>
+          </div>
+        </article>
+        <article class="group rounded-3xl overflow-hidden glass dark:glass-dark shadow-soft dark:shadow-soft-dark reveal tilt">
+          <div class="relative">
+            <img src="https://placehold.co/900x600" alt="Aperçu projet E-commerce" class="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-[1.03]">
+            <div class="absolute top-4 left-4 px-3 py-1.5 rounded-full bg-white/80 dark:bg-white/10 border border-white/60 dark:border-white/10 text-xs"><i class="fa fa-bag-shopping mr-1 text-emerald-500"></i> Commerce</div>
+          </div>
+          <div class="p-6">
+            <h3 class="font-semibold text-lg">Bloom — E‑commerce cosmétiques</h3>
+            <p class="text-sm text-slate-600 dark:text-slate-300 mt-1">Design pastel, performances top et parcours d’achat intuitif.</p>
+            <div class="mt-3 flex flex-wrap gap-2 text-xs">
+              <span class="px-2.5 py-1 rounded-full bg-sky-100 dark:bg-sky-500/20 text-sky-700 dark:text-sky-200">Next.js</span>
+              <span class="px-2.5 py-1 rounded-full bg-rose-100 dark:bg-rose-500/20 text-rose-700 dark:text-rose-200">Stripe</span>
+              <span class="px-2.5 py-1 rounded-full bg-emerald-100 dark:bg-emerald-500/20 text-emerald-700 dark:text-emerald-200">CMS</span>
+            </div>
+            <div class="mt-5 flex gap-3">
+              <a href="#" class="btn px-4 py-2 rounded-xl bg-slate-900 text-white dark:bg-white dark:text-slate-900 text-sm"><i class="fa fa-up-right-from-square mr-2"></i> Visiter</a>
+              <a href="#" class="btn px-4 py-2 rounded-xl bg-white/70 dark:bg-white/5 border border-white/60 dark:border-white/10 text-sm"><i class="fa-brands fa-github mr-2"></i> Code</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="timeline" class="relative py-24 soft-gradient">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="reveal text-center">
+        <h2 class="font-display font-bold text-3xl md:text-4xl gradient-title">Parcours</h2>
+        <p class="mt-2 text-slate-600 dark:text-slate-300">De la science au web, une trajectoire guidée par la curiosité et l’exigence.</p>
+      </div>
+      <div class="mt-10 grid md:grid-cols-2 gap-8">
+        <div class="space-y-6">
+          <div class="p-6 rounded-2xl bg-white/70 dark:bg-white/5 border border-white/60 dark:border-white/10 reveal">
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-amber-300/70 to-rose-300/70 flex items-center justify-center text-amber-900"><i class="fa fa-school"></i></div>
+              <div>
+                <div class="font-semibold">Bac S</div>
+                <div class="text-sm text-slate-600 dark:text-slate-300">Rigueur scientifique et logique.</div>
+              </div>
+            </div>
+          </div>
+          <div class="p-6 rounded-2xl bg-white/70 dark:bg-white/5 border border-white/60 dark:border-white/10 reveal">
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-indigo-300/70 to-sky-300/70 flex items-center justify-center text-indigo-900"><i class="fa fa-book-open"></i></div>
+              <div>
+                <div class="font-semibold">Licence d’Histoire</div>
+                <div class="text-sm text-slate-600 dark:text-slate-300">Sens du récit, analyse critique, clarté.</div>
+              </div>
+            </div>
+          </div>
+          <div class="p-6 rounded-2xl bg-white/70 dark:bg-white/5 border border-white/60 dark:border-white/10 reveal">
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-300/70 to-mint-300/70 flex items-center justify-center text-emerald-900"><i class="fa fa-flask"></i></div>
+              <div>
+                <div class="font-semibold">Master Archéométrie</div>
+                <div class="text-sm text-slate-600 dark:text-slate-300">Laboratoire, précision et méthode.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="space-y-6">
+          <div class="p-6 rounded-2xl bg-white/70 dark:bg-white/5 border border-white/60 dark:border-white/10 reveal">
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-pink-300/70 to-violet-300/70 flex items-center justify-center text-pink-900"><i class="fa fa-robot"></i></div>
+              <div>
+                <div class="font-semibold">Virage IA &amp; Dev Web</div>
+                <div class="text-sm text-slate-600 dark:text-slate-300">Apprentissage intensif, projets, veille technologique.</div>
+              </div>
+            </div>
+          </div>
+          <div class="p-6 rounded-2xl bg-white/70 dark:bg-white/5 border border-white/60 dark:border-white/10 reveal">
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-sky-300/70 to-fuchsia-300/70 flex items-center justify-center text-sky-900"><i class="fa fa-rocket"></i></div>
+              <div>
+                <div class="font-semibold">Création de Codyz AI</div>
+                <div class="text-sm text-slate-600 dark:text-slate-300">Une plateforme pour démocratiser la création de sites modernes.</div>
+              </div>
+            </div>
+          </div>
+          <div class="p-6 rounded-2xl bg-white/70 dark:bg-white/5 border border-white/60 dark:border-white/10 reveal">
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-300/70 to-sky-300/70 flex items-center justify-center text-emerald-900"><i class="fa fa-users"></i></div>
+              <div>
+                <div class="font-semibold">Accompagnement clients</div>
+                <div class="text-sm text-slate-600 dark:text-slate-300">Stratégie, design, dev et croissance sur mesure.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="temoignages" class="relative py-24">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="reveal text-center">
+        <h2 class="font-display font-bold text-3xl md:text-4xl gradient-title">Ils en parlent</h2>
+        <p class="mt-2 text-slate-600 dark:text-slate-300">Des collaborations simples, efficaces et mémorables.</p>
+      </div>
+      <div class="mt-10 grid lg:grid-cols-3 gap-6" id="testimonials">
+        <div class="p-6 rounded-2xl glass dark:glass-dark shadow-soft dark:shadow-soft-dark reveal">
+          <div class="flex items-center gap-3">
+            <img src="https://placehold.co/64x64" alt="Client A" class="w-12 h-12 rounded-full object-cover">
+            <div>
+              <div class="font-semibold">Camille, Studio Aster</div>
+              <div class="text-xs text-slate-500">Directrice Créative</div>
+            </div>
+          </div>
+          <p class="mt-3 text-sm text-slate-600 dark:text-slate-300">Louis a compris notre univers et l’a sublimé. Le site est rapide, poétique et convertit 2× plus.</p>
+          <div class="mt-2 text-amber-400"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half-stroke"></i></div>
+        </div>
+        <div class="p-6 rounded-2xl glass dark:glass-dark shadow-soft dark:shadow-soft-dark reveal">
+          <div class="flex items-center gap-3">
+            <img src="https://placehold.co/64x64" alt="Client B" class="w-12 h-12 rounded-full object-cover">
+            <div>
+              <div class="font-semibold">Thomas, Bloom</div>
+              <div class="text-xs text-slate-500">CEO</div>
+            </div>
+          </div>
+          <p class="mt-3 text-sm text-slate-600 dark:text-slate-300">Parcours d’achat retravaillé, animations subtiles, résultats mesurables. Un plaisir de collaborer.</p>
+          <div class="mt-2 text-amber-400"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div>
+        </div>
+        <div class="p-6 rounded-2xl glass dark:glass-dark shadow-soft dark:shadow-soft-dark reveal">
+          <div class="flex items-center gap-3">
+            <img src="https://placehold.co/64x64" alt="Client C" class="w-12 h-12 rounded-full object-cover">
+            <div>
+              <div class="font-semibold">Sarah, Campus+</div>
+              <div class="text-xs text-slate-500">CPO</div>
+            </div>
+          </div>
+          <p class="mt-3 text-sm text-slate-600 dark:text-slate-300">Tech solide et design accessible. Nos apprenants adorent et les stats montent.</p>
+          <div class="mt-2 text-amber-400"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="blog" class="relative py-24 soft-gradient">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="reveal text-center">
+        <h2 class="font-display font-bold text-3xl md:text-4xl gradient-title">Notes &amp; Inspirations</h2>
+        <p class="mt-2 text-slate-600 dark:text-slate-300">Explorations autour du web moderne, de l’IA et du design.</p>
+      </div>
+      <div class="mt-10 grid md:grid-cols-3 gap-6">
+        <article class="rounded-2xl glass dark:glass-dark shadow-soft dark:shadow-soft-dark overflow-hidden reveal">
+          <img src="https://placehold.co/900x540" alt="Article 1" class="w-full h-44 object-cover">
+          <div class="p-6">
+            <div class="text-xs text-slate-500">Mars 2025 • 7 min</div>
+            <h3 class="font-semibold mt-1">Guide Pastel: créer une UI douce sans la rendre fade</h3>
+            <p class="text-sm text-slate-600 dark:text-slate-300 mt-1">Palette, contraste, rythme et micro‑interactions.</p>
+            <a href="#" class="btn mt-3 inline-flex items-center text-sm underline decoration-sky-400/60 underline-offset-4"><i class="fa fa-book-open mr-2"></i> Lire</a>
+          </div>
+        </article>
+        <article class="rounded-2xl glass dark:glass-dark shadow-soft dark:shadow-soft-dark overflow-hidden reveal">
+          <img src="https://placehold.co/900x540" alt="Article 2" class="w-full h-44 object-cover">
+          <div class="p-6">
+            <div class="text-xs text-slate-500">Février 2025 • 9 min</div>
+            <h3 class="font-semibold mt-1">LLMs en production: RAG, évaluation et coûts</h3>
+            <p class="text-sm text-slate-600 dark:text-slate-300 mt-1">Stratégies pragmatiques pour des apps fiables et rapides.</p>
+            <a href="#" class="btn mt-3 inline-flex items-center text-sm underline decoration-sky-400/60 underline-offset-4"><i class="fa fa-book-open mr-2"></i> Lire</a>
+          </div>
+        </article>
+        <article class="rounded-2xl glass dark:glass-dark shadow-soft dark:shadow-soft-dark overflow-hidden reveal">
+          <img src="https://placehold.co/900x540" alt="Article 3" class="w-full h-44 object-cover">
+          <div class="p-6">
+            <div class="text-xs text-slate-500">Janvier 2025 • 5 min</div>
+            <h3 class="font-semibold mt-1">Design Systems qui respirent avec Tailwind</h3>
+            <p class="text-sm text-slate-600 dark:text-slate-300 mt-1">Tokens, composants et consistance à grande échelle.</p>
+            <a href="#" class="btn mt-3 inline-flex items-center text-sm underline decoration-sky-400/60 underline-offset-4"><i class="fa fa-book-open mr-2"></i> Lire</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="relative py-24">
+    <div class="absolute inset-0 -z-10 opacity-40" style="background-image: radial-gradient(900px 260px at 10% 100%, rgba(244,114,182,.25), rgba(0,0,0,0));"></div>
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-10 items-start">
+        <div class="reveal">
+          <h2 class="font-display font-bold text-3xl md:text-4xl gradient-title">Travaillons ensemble</h2>
+          <p class="mt-2 text-slate-600 dark:text-slate-300">Dites‑moi ce que vous rêvez de construire. Je reviens vers vous sous 24h.</p>
+          <div class="mt-6 space-y-4">
+            <div class="flex items-start gap-3">
+              <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-sky-300/60 to-cyan-300/60 flex items-center justify-center text-sky-900"><i class="fa fa-clock"></i></div>
+              <div>
+                <div class="font-semibold">Délais réalistes</div>
+                <div class="text-sm text-slate-600 dark:text-slate-300">Roadmap claire, jalons et transparence.</div>
+              </div>
+            </div>
+            <div class="flex items-start gap-3">
+              <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-300/60 to-mint-300/60 flex items-center justify-center text-emerald-900"><i class="fa fa-seedling"></i></div>
+              <div>
+                <div class="font-semibold">Croissance mesurable</div>
+                <div class="text-sm text-slate-600 dark:text-slate-300">Analytics, tests A/B et itérations tactiques.</div>
+              </div>
+            </div>
+            <div class="flex items-start gap-3">
+              <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-fuchsia-300/60 to-violet-300/60 flex items-center justify-center text-fuchsia-900"><i class="fa fa-heart"></i></div>
+              <div>
+                <div class="font-semibold">Relation simple</div>
+                <div class="text-sm text-slate-600 dark:text-slate-300">Communication directe et bienveillante.</div>
+              </div>
+            </div>
+          </div>
+          <div class="mt-8 flex gap-3 text-2xl text-slate-500">
+            <a href="mailto:bonjour@louisscarfone.dev" class="tooltip relative" data-tip="Email"><i class="fa fa-envelope"></i></a>
+            <a href="https://twitter.com" target="_blank" class="tooltip relative" data-tip="X/Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="https://github.com" target="_blank" class="tooltip relative" data-tip="GitHub"><i class="fa-brands fa-github"></i></a>
+            <a href="https://www.linkedin.com" target="_blank" class="tooltip relative" data-tip="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+          </div>
+        </div>
+        <div class="reveal">
+          <form id="contactForm" class="rounded-3xl glass dark:glass-dark shadow-soft dark:shadow-soft-dark p-6 space-y-4">
+            <div class="grid sm:grid-cols-2 gap-4">
+              <div>
+                <label class="text-sm font-medium">Prénom</label>
+                <input name="prenom" required="" class="input mt-1 w-full px-4 py-3 rounded-xl bg-white dark:bg-slate-900 border border-white/60 dark:border-white/10" placeholder="Alex">
+              </div>
+              <div>
+                <label class="text-sm font-medium">Nom</label>
+                <input name="nom" required="" class="input mt-1 w-full px-4 py-3 rounded-xl bg-white dark:bg-slate-900 border border-white/60 dark:border-white/10" placeholder="Martin">
+              </div>
+            </div>
+            <div class="grid sm:grid-cols-2 gap-4">
+              <div>
+                <label class="text-sm font-medium">Email</label>
+                <input name="email" type="email" required="" class="input mt-1 w-full px-4 py-3 rounded-xl bg-white dark:bg-slate-900 border border-white/60 dark:border-white/10" placeholder="prenom@domaine.com">
+              </div>
+              <div>
+                <label class="text-sm font-medium">Budget</label>
+                <select name="budget" class="input mt-1 w-full px-4 py-3 rounded-xl bg-white dark:bg-slate-900 border border-white/60 dark:border-white/10">
+                  <option>— À définir</option>
+                  <option>3k€ - 7k€</option>
+                  <option>7k€ - 15k€</option>
+                  <option>15k€ +</option>
+                </select>
+              </div>
+            </div>
+            <div>
+              <label class="text-sm font-medium">Type de projet</label>
+              <div class="mt-2 grid sm:grid-cols-3 gap-3 text-sm">
+                <label class="flex items-center gap-2 px-3 py-2 rounded-xl bg-white/70 dark:bg-white/5 border border-white/60 dark:border-white/10 cursor-pointer"><input type="checkbox" name="type" value="Site" class="accent-sky-500"> Site vitrine</label>
+                <label class="flex items-center gap-2 px-3 py-2 rounded-xl bg-white/70 dark:bg-white/5 border border-white/60 dark:border-white/10 cursor-pointer"><input type="checkbox" name="type" value="E‑commerce" class="accent-sky-500"> E‑commerce</label>
+                <label class="flex items-center gap-2 px-3 py-2 rounded-xl bg-white/70 dark:bg-white/5 border border-white/60 dark:border-white/10 cursor-pointer"><input type="checkbox" name="type" value="IA" class="accent-sky-500"> IA</label>
+              </div>
+            </div>
+            <div>
+              <label class="text-sm font-medium">Message</label>
+              <textarea name="message" rows="5" required="" class="input mt-1 w-full px-4 py-3 rounded-xl bg-white dark:bg-slate-900 border border-white/60 dark:border-white/10" placeholder="Parlez‑moi de vos besoins..."></textarea>
+            </div>
+            <div class="flex items-center justify-between">
+              <label class="text-xs text-slate-500 flex items-center gap-2"><input type="checkbox" required="" class="accent-sky-500"> J’accepte la politique de confidentialité</label>
+              <button type="submit" class="btn px-5 py-3 rounded-xl bg-gradient-to-r from-sky-500 via-cyan-500 to-fuchsia-500 text-white font-semibold"><i class="fa fa-paper-plane mr-2"></i> Envoyer</button>
+            </div>
+            <div id="formToast" class="hidden mt-3 px-4 py-3 rounded-xl bg-emerald-500/15 text-emerald-800 dark:text-emerald-300 border border-emerald-500/30"><i class="fa fa-circle-check mr-2"></i> Message envoyé ! Je vous réponds très vite.</div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="relative py-14">
+  <div class="absolute inset-0 -z-10 opacity-40" style="background-image: radial-gradient(900px 260px at 50% 0%, rgba(125,211,252,.25), rgba(0,0,0,0));"></div>
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="grid md:grid-cols-4 gap-8">
+      <div>
+        <div class="flex items-center gap-3">
+          <span class="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-br from-sky-300/60 via-candy-300/60 to-mint-300/60 font-bold text-slate-900">LS</span>
+          <div class="font-display font-bold">Louis Scarfone</div>
+        </div>
+        <p class="mt-3 text-sm text-slate-600 dark:text-slate-300">Designer/Dev full‑stack JavaScript. Fondateur de Codyz AI.</p>
+      </div>
+      <div>
+        <div class="font-semibold mb-3">Navigation</div>
+        <ul class="space-y-2 text-sm">
+          <li><a href="#apropos" class="hover:underline">À propos</a></li>
+          <li><a href="#codyz" class="hover:underline">Codyz AI</a></li>
+          <li><a href="#skills" class="hover:underline">Compétences</a></li>
+          <li><a href="#projets" class="hover:underline">Projets</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="font-semibold mb-3">Ressources</div>
+        <ul class="space-y-2 text-sm">
+          <li><a href="#blog" class="hover:underline">Blog</a></li>
+          <li><a href="#" class="hover:underline">Charte graphique</a></li>
+          <li><a href="#" class="hover:underline">Politique de confidentialité</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="font-semibold mb-3">Contact</div>
+        <ul class="space-y-2 text-sm">
+          <li><i class="fa fa-envelope mr-2"></i> bonjour@louisscarfone.dev</li>
+          <li><i class="fa fa-location-dot mr-2"></i> France, Europe</li>
+          <li class="flex gap-3 text-lg">
+            <a href="https://github.com" target="_blank"><i class="fa-brands fa-github"></i></a>
+            <a href="https://www.linkedin.com" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="https://twitter.com" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="mt-10 pt-6 border-t border-white/60 dark:border-white/10 text-sm flex flex-col sm:flex-row items-center justify-between">
+      <div>© <span id="year"></span> Louis Scarfone. Tous droits réservés.</div>
+      <div class="text-slate-500">Construit avec passion, Tailwind et un soupçon de magie.</div>
+    </div>
+  </div>
+  <button id="toTop" class="fixed bottom-6 right-6 btn w-12 h-12 rounded-2xl bg-slate-900 text-white dark:bg-white dark:text-slate-900 shadow-soft dark:shadow-soft-dark hidden"><i class="fa fa-arrow-up"></i></button>
+</footer>
+
+<script>
+  const htmlEl = document.documentElement;
+  if (!localStorage.getItem('theme')) {
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    localStorage.setItem('theme', prefersDark ? 'dark' : 'light');
+  }
+  function applyTheme() {
+    const t = localStorage.getItem('theme');
+    if (t === 'dark') htmlEl.classList.add('dark'); else htmlEl.classList.remove('dark');
+  }
+  applyTheme();
+  document.getElementById('themeToggle').addEventListener('click', () => {
+    const t = localStorage.getItem('theme') === 'dark' ? 'light' : 'dark';
+    localStorage.setItem('theme', t); applyTheme();
+  });
+
+  const menuBtn = document.getElementById('menuBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  if (menuBtn) menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    const y = window.scrollY;
+    navbar.classList.toggle('mt-0', y > 20);
+    navbar.classList.toggle('mt-4', y <= 20);
+    document.getElementById('progress').style.width = (y / (document.body.scrollHeight - window.innerHeight)) * 100 + '%';
+    document.getElementById('toTop').classList.toggle('hidden', y < 600);
+  });
+
+  const io = new IntersectionObserver((entries) => {
+    for (const e of entries) {
+      if (e.isIntersecting) {
+        e.target.classList.add('show');
+        io.unobserve(e.target);
+      }
+    }
+  }, { threshold: .2 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  const counters = document.querySelectorAll('[data-counter]');
+  const ioCounter = new IntersectionObserver((entries) => {
+    for (const e of entries) {
+      if (e.isIntersecting) {
+        const el = e.target; const target = parseInt(el.getAttribute('data-counter'), 10);
+        let cur = 0; const dur = 1200; const start = performance.now();
+        function step(ts) {
+          const p = Math.min((ts - start) / dur, 1);
+          cur = Math.floor(target * (0.2 + 0.8 * p * p));
+          el.textContent = cur.toLocaleString('fr-FR');
+          if (p < 1) requestAnimationFrame(step);
+        }
+        requestAnimationFrame(step);
+        ioCounter.unobserve(el);
+      }
+    }
+  }, { threshold: .6 });
+  counters.forEach(c => ioCounter.observe(c));
+
+  const codeCard = document.getElementById('codeCard');
+  let rect;
+  function handleTilt(e) {
+    const r = rect || codeCard.getBoundingClientRect();
+    const cx = r.left + r.width / 2;
+    const cy = r.top + r.height / 2 + window.scrollY;
+    const dx = (e.pageX - cx) / (r.width / 2);
+    const dy = (e.pageY - cy) / (r.height / 2);
+    codeCard.style.transform = `rotateX(${(-dy*4).toFixed(2)}deg) rotateY(${(dx*6).toFixed(2)}deg)`;
+  }
+  if (codeCard) {
+    codeCard.addEventListener('mouseenter', () => rect = codeCard.getBoundingClientRect());
+    codeCard.addEventListener('mousemove', handleTilt);
+    codeCard.addEventListener('mouseleave', () => codeCard.style.transform = 'rotateX(0) rotateY(0)');
+  }
+  document.querySelectorAll('.tilt').forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const r = card.getBoundingClientRect();
+      const dx = (e.clientX - r.left) / r.width - .5;
+      const dy = (e.clientY - r.top) / r.height - .5;
+      card.style.transform = `perspective(900px) rotateX(${(-dy*4).toFixed(2)}deg) rotateY(${(dx*6).toFixed(2)}deg) translateZ(0)`;
+    });
+    card.addEventListener('mouseleave', () => card.style.transform = 'none');
+  });
+
+  const toTop = document.getElementById('toTop');
+  if (toTop) toTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+  const year = document.getElementById('year'); if (year) year.textContent = new Date().getFullYear();
+
+  const testimonials = document.getElementById('testimonials');
+  let slideIdx = 0;
+  setInterval(() => {
+    const cards = testimonials.querySelectorAll('.glass, .dark\\:glass-dark');
+    slideIdx = (slideIdx + 1) % cards.length;
+    cards.forEach((c,i) => {
+      c.style.transform = i === slideIdx ? 'translateY(-6px)' : 'translateY(0)';
+      c.style.transition = 'transform .6s ease';
+    });
+  }, 3800);
+
+  const prompt = document.getElementById('prompt');
+  const preview = document.getElementById('preview');
+  const genBtn = document.getElementById('generateBtn');
+  function updatePreview(text) {
+    const palette = [
+      ['from-sky-200/60 to-fuchsia-200/60','from-mint-200/60 to-violet-200/60'],
+      ['from-emerald-200/60 to-cyan-200/60','from-rose-200/60 to-indigo-200/60'],
+      ['from-amber-200/60 to-pink-200/60','from-sky-200/60 to-emerald-200/60']
+    ];
+    const pick = palette[Math.floor(Math.random()*palette.length)];
+    const boxes = preview.querySelectorAll('.rounded-xl.bg-gradient-to-br');
+    boxes[0].className = 'mt-3 h-32 rounded-xl bg-gradient-to-br '+pick[0];
+    boxes[1].className = 'mt-3 h-32 rounded-xl bg-gradient-to-br '+pick[1];
+    preview.parentElement.querySelector('.text-xs.text-slate-500').textContent = 'Aperçu visuel • ' + (text?.slice(0,48) || 'Démo');
+  }
+  if (genBtn) genBtn.addEventListener('click', () => updatePreview(prompt.value));
+  if (prompt) prompt.addEventListener('input', (e)=> updatePreview(e.target.value));
+
+  const form = document.getElementById('contactForm');
+  if (form) form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const toast = document.getElementById('formToast');
+    toast.classList.remove('hidden');
+    toast.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    setTimeout(()=> toast.classList.add('hidden'), 4000);
+    form.reset();
+  });
+
+  window.addEventListener('load', () => {
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', () => mobileMenu?.classList.add('hidden'));
+    });
+  });
+</script>
+</body>
+</html>
